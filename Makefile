@@ -25,7 +25,7 @@ SRC_NAME= bip_new.c \
 			bip_clear.c \
 			bip_uncommit.c
 SRC= $(addprefix $(SRC_PATH), $(SRC_NAME))
-OBJ_PATH= obj/$(NAME)/
+OBJ_PATH= obj/
 OBJ_NAME= $(SRC_NAME:.c=.o)
 OBJ= $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 

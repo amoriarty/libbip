@@ -6,7 +6,7 @@
 #    By: alegent <alegent@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 10:43:26 by alegent           #+#    #+#              #
-#    Updated: 2017/03/27 11:48:30 by alegent          ###   ########.fr        #
+#    Updated: 2017/04/20 15:14:20 by alegent          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIB= ./libft/libft.a
 # BINARIE CONFIGURATION
 NAME= libbip.a
 SRC_PATH= srcs/
-SRC_NAME= bip_new.c \
+SRC_NAME= bip.c \
 			bip_free.c \
 			bip_reserve.c \
 			bip_commit.c \

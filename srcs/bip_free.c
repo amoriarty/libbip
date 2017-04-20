@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/21 13:23:41 by alegent           #+#    #+#             */
-/*   Updated: 2017/03/27 11:49:15 by alegent          ###   ########.fr       */
+/*   Updated: 2017/04/20 15:23:00 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 ** Unallocate a bip buffer.
 */
 
-void		bip_free(t_bip *bip)
+void		bip_free(t_bip *self)
 {
-	free(bip->reg_b);
-	free(bip->reg_a);
-	free(bip->buffer);
-	free(bip);
+	free(self->reg_b);
+	free(self->reg_a);
+	free(self->buffer);
+	free(self);
 }

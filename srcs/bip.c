@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bip_new.c                                          :+:      :+:    :+:   */
+/*   bip.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/21 13:04:22 by alegent           #+#    #+#             */
-/*   Updated: 2017/03/27 11:49:09 by alegent          ###   ########.fr       */
+/*   Updated: 2017/04/20 15:21:05 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,25 @@ static int			reg_new(t_bip *bip)
 ** @buf_size: size of the circular buffer.
 */
 
-t_bip				*bip_new(size_t buf_size)
+t_bip				*bip(size_t size)
 {
-	t_bip			*bip;
+	t_bip			*self;
 
-	if (!(bip = (t_bip *)malloc(sizeof(t_bip))))
+	if (!(self = (t_bip *)malloc(sizeof(t_bip))))
 		return (NULL);
-	bip->buf_size = buf_size;
-	if (!(bip->buffer = (char *)malloc(sizeof(char) * buf_size)))
+	self->buf_size = size;
+	if (!(self->buffer = ft_strnew(size)))
 	{
-		free(bip);
+		free(self);
 		return (NULL);
 	}
-	if (reg_new(bip) == FALSE)
+	if (reg_new(self) == FALSE)
 		return (NULL);
-	bip_clear(bip);
-	return (bip);
+	self->free = bip_free;
+	self->commit = bip_commit;
+	self->uncommit = bip_uncommit;
+	self->reserve = bip_reserve;
+	self->clear = bip_clear;
+	self->clear(self);
+	return (self);
 }

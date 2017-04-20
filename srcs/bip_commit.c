@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 13:01:47 by alegent           #+#    #+#             */
-/*   Updated: 2017/03/27 11:49:22 by alegent          ###   ########.fr       */
+/*   Updated: 2017/04/20 15:22:39 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 ** @len: Length to commit.
 */
 
-void			bip_commit(t_bip *bip, size_t size)
+void			bip_commit(t_bip *self, size_t size)
 {
 	++size;
-	if (bip->current->size)
-		bip->current->size += size;
+	if (self->current->size)
+		self->current->size += size;
 	else
-		bip->current->size = size;
-	bip->write = NULL;
+		self->current->size = size;
+	self->write = NULL;
 }
